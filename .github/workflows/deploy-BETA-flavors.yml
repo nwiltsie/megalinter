@@ -18,8 +18,7 @@ on:
   push:
     branches:
       - "main"
-      - "FlavoredMegaLinters"
-      - dbgbeta
+      - "nwiltsie-test-image"
     paths:
       - ".github/workflows/**"
       - "Dockerfile"
@@ -56,32 +55,14 @@ jobs:
         # flavors-start
         flavor:
           [
-            "bioinformatics",
-            "c_cpp",
-            "ci_light",
-            "cupcake",
-            "documentation",
-            "dotnet",
-            "dotnetweb",
-            "formatters",
-            "go",
-            "java",
-            "javascript",
-            "php",
-            "python",
-            "ruby",
-            "rust",
-            "salesforce",
-            "security",
-            "swift",
-            "terraform",
+            "bioinformatics"
           ]
 # flavors-end
         platform: ["linux/amd64"]
     # Only run this on the main repo
     if: >-
       (
-        github.repository == 'oxsecurity/megalinter'
+        github.repository == 'nwiltsie/megalinter'
         && !contains(github.event.head_commit.message, 'skip deploy')
         && !contains(github.event.head_commit.message, 'Release MegaLinter v')
       )
